@@ -3,287 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miriam [Surname] — Economic Geography</title>
+<title>Miriam Berretta — Economic Geography</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F2F1EC;
-    --paper-raised:#FAFAF6;
-    --ink:#1C2531;
-    --ink-soft:#4A5568;
-    --ink-faint:#8A8F98;
-    --line:#D6D3C8;
-    --accent:#B7742C;
-    --accent-soft:#EADFC7;
-    --accent-ink:#7A4D1B;
-    --maxw:920px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{background:var(--accent-soft);color:var(--accent-ink);}
-
-  a{color:inherit;}
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:3px;
-    border-radius:2px;
-  }
-
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-
-  /* ---------- NAV ---------- */
-  nav{
-    position:sticky;top:0;z-index:20;
-    background:rgba(242,241,236,0.88);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    height:56px;
-  }
-  .nav-name{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;letter-spacing:0.02em;
-    color:var(--ink-soft);
-  }
-  .nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0;}
-  .nav-links a{
-    font-size:13px;text-decoration:none;color:var(--ink-soft);
-    font-family:'IBM Plex Mono',monospace;
-    transition:color .15s ease;
-  }
-  .nav-links a:hover{color:var(--accent-ink);}
-
-  /* ---------- HERO ---------- */
-  header.hero{
-    padding:76px 0 64px;
-    border-bottom:1px solid var(--line);
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    gap:48px;
-    align-items:center;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--accent-ink);
-    margin:0 0 14px;
-  }
-  h1{
-    font-family:'Newsreader',serif;
-    font-weight:500;
-    font-size:clamp(2.4rem,5vw,3.4rem);
-    line-height:1.05;
-    margin:0 0 18px;
-    letter-spacing:-0.01em;
-  }
-  .hero-role{
-    font-size:1.05rem;
-    color:var(--ink-soft);
-    max-width:46ch;
-    margin:0 0 22px;
-  }
-  .hero-affil{
-    font-size:14px;
-    color:var(--ink-faint);
-    line-height:1.7;
-  }
-  .hero-affil strong{color:var(--ink-soft);font-weight:500;}
-
-  .hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;}
-  .btn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    padding:10px 18px;
-    border:1px solid var(--ink);
-    border-radius:2px;
-    text-decoration:none;
-    color:var(--ink);
-    display:inline-block;
-    transition:background .15s ease, color .15s ease;
-  }
-  .btn:hover{background:var(--ink);color:var(--paper-raised);}
-  .btn.primary{background:var(--ink);color:var(--paper-raised);}
-  .btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);}
-
-  /* ---------- SIGNATURE FIGURE (event-study plot) ---------- */
-  .figure-card{
-    background:var(--paper-raised);
-    border:1px solid var(--line);
-    border-radius:3px;
-    padding:20px 20px 16px;
-  }
-  .figure-label{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--ink-faint);
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-  }
-  .figure-caption{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--ink-faint);
-    margin-top:10px;
-    line-height:1.5;
-  }
-  svg.eventstudy .dot{transition:r .15s ease;}
-  svg.eventstudy .dot:hover{r:5.5;}
-
-  /* ---------- SECTIONS ---------- */
-  section{padding:56px 0;border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    gap:16px;
-    margin-bottom:32px;
-  }
-  .section-num{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--accent-ink);
-  }
-  h2{
-    font-family:'Newsreader',serif;
-    font-weight:500;
-    font-size:1.6rem;
-    margin:0;
-  }
-
-  .about-text{max-width:64ch;color:var(--ink-soft);font-size:15.5px;}
-  .about-text p{margin:0 0 16px;}
-  .about-text a{color:var(--accent-ink);text-decoration-color:var(--accent-soft);}
-
-  /* ---------- PAPERS ---------- */
-  .paper{
-    padding:24px 0;
-    border-top:1px solid var(--line);
-    display:grid;
-    grid-template-columns:100px 1fr;
-    gap:22px;
-  }
-  .paper:first-of-type{border-top:none;}
-  .paper-status{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--accent-ink);
-    background:var(--accent-soft);
-    padding:4px 8px;
-    border-radius:2px;
-    height:fit-content;
-    text-align:center;
-    line-height:1.4;
-  }
-  .paper-title{
-    font-family:'Newsreader',serif;
-    font-size:1.15rem;
-    font-weight:500;
-    margin:0 0 6px;
-    line-height:1.3;
-  }
-  .paper-authors{
-    font-size:13.5px;
-    color:var(--ink-faint);
-    margin:0 0 10px;
-  }
-  .paper-abstract{
-    font-size:14.5px;
-    color:var(--ink-soft);
-    margin:0 0 12px;
-    max-width:62ch;
-  }
-  .paper-tags{display:flex;gap:8px;flex-wrap:wrap;}
-  .tag{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--ink-faint);
-    border:1px solid var(--line);
-    padding:3px 8px;
-    border-radius:2px;
-  }
-
-  /* ---------- CONTACT ---------- */
-  .contact-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:24px;
-  }
-  .contact-item .label{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ink-faint);
-    margin-bottom:6px;
-  }
-  .contact-item a, .contact-item span{
-    font-size:15px;
-    text-decoration:none;
-    border-bottom:1px solid var(--line);
-  }
-  .contact-item a:hover{border-bottom-color:var(--accent-ink);color:var(--accent-ink);}
-
-  footer{
-    padding:28px 0 48px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--ink-faint);
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-
-  @media (max-width:760px){
-    .hero-grid{grid-template-columns:1fr;}
-    .paper{grid-template-columns:1fr;}
-    .paper-status{width:fit-content;}
-    .nav-links{gap:14px;}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    *{transition:none !important;}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <span class="nav-name">M. [SURNAME]</span>
+    <div class="nav-left">
+      <img class="nav-avatar" src="photo.jpg" alt="Miriam Berretta">
+      <a class="nav-name" href="index.html">M. BERRETTA</a>
+    </div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="conferences.html">Conferences</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap hero-grid">
+    <img class="portrait" src="photo.jpg" alt="Miriam Berretta">
     <div>
       <p class="eyebrow">JEL — J12 · J16 · O15 · R11</p>
-      <h1>Miriam [Surname]</h1>
+      <h1>Miriam Berretta</h1>
       <p class="hero-role">
         PhD candidate in Economic Geography working on the causal identification of
         gender-based violence — spatial and staggered difference-in-differences designs
@@ -291,46 +39,13 @@
       </p>
       <p class="hero-affil">
         <strong>Gran Sasso Science Institute</strong>, L'Aquila &nbsp;·&nbsp;
-        Supervised by <strong>Katrin Millock</strong>, Paris School of Economics<br>
-        Dissertation defense expected October 2027
+        Supervised by <strong>Daria Denti</strong> (GSSI) and <strong>Ilan Noy</strong><br>
+        PhD expected 2027
       </p>
       <div class="hero-cta">
-        <a class="btn primary" href="#research">View research</a>
-        <a class="btn" href="/cv-miriam.pdf">Download CV ↓</a>
+        <a class="btn primary" href="research.html">View research</a>
+        <a class="btn" href="cv.html">See CV</a>
       </div>
-    </div>
-
-    <div class="figure-card">
-      <div class="figure-label">
-        <span>FIG. 1</span>
-        <span>EVENT-STUDY COEFFICIENTS</span>
-      </div>
-      <svg class="eventstudy" viewBox="0 0 320 190" width="100%" role="img" aria-label="Stylized event-study plot showing coefficients centered on a treatment event at time zero">
-        <line x1="20" y1="150" x2="300" y2="150" stroke="#D6D3C8" stroke-width="1"/>
-        <line x1="160" y1="20" x2="160" y2="165" stroke="#8A8F98" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="160" y="178" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8A8F98">t = 0</text>
-
-        <!-- pre-period: near zero, ink -->
-        <g stroke="#4A5568" stroke-width="1.2">
-          <line x1="50" y1="140" x2="50" y2="160"/>
-          <line x1="85" y1="144" x2="85" y2="158"/>
-          <line x1="120" y1="142" x2="120" y2="156"/>
-        </g>
-        <circle class="dot" cx="50" cy="150" r="3.5" fill="#4A5568"/>
-        <circle class="dot" cx="85" cy="151" r="3.5" fill="#4A5568"/>
-        <circle class="dot" cx="120" cy="149" r="3.5" fill="#4A5568"/>
-
-        <!-- post-period: rising, ochre -->
-        <g stroke="#B7742C" stroke-width="1.2">
-          <line x1="195" y1="95" x2="195" y2="130"/>
-          <line x1="230" y1="70" x2="230" y2="112"/>
-          <line x1="265" y1="55" x2="265" y2="100"/>
-        </g>
-        <circle class="dot" cx="195" cy="112" r="3.5" fill="#B7742C"/>
-        <circle class="dot" cx="230" cy="91" r="3.5" fill="#B7742C"/>
-        <circle class="dot" cx="265" cy="78" r="3.5" fill="#B7742C"/>
-      </svg>
-      <p class="figure-caption">Stylized. Coefficients and CIs illustrative — see individual papers for estimates.</p>
     </div>
   </div>
 </header>
@@ -355,107 +70,69 @@
         from the University of East Anglia.
       </p>
       <p>
-        I work in English and Italian, and communicate professionally in Spanish.
+        I work in English, Spanish, and Italian.
       </p>
     </div>
-  </div>
-</section>
 
-<section id="research">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Working papers</h2>
-    </div>
-
-    <div class="paper">
-      <span class="paper-status">Under<br>review</span>
-      <div>
-        <p class="paper-title">Infrastructure and Intimate Partner Violence: Evidence from the Tren Maya</p>
-        <p class="paper-authors">with Adán Silveiro Murillo (Tecnológico de Monterrey)</p>
-        <p class="paper-abstract">
-          Using staggered difference-in-differences on hospital injury, crime, and formal
-          employment records across 43 treated municipalities in the Yucatán Peninsula,
-          this paper identifies the effect of large infrastructure construction on
-          intimate partner violence and non-partner female assault.
-        </p>
-        <div class="paper-tags">
-          <span class="tag">staggered DiD</span>
-          <span class="tag">Borusyak imputation</span>
-          <span class="tag">Mexico</span>
-        </div>
+    <div class="figure-card">
+      <div class="figure-label">
+        <span>FIG. 1</span>
+        <span>EVENT-STUDY COEFFICIENTS</span>
       </div>
-    </div>
+      <svg class="eventstudy" viewBox="0 0 320 190" width="100%" role="img" aria-label="Stylized event-study plot showing coefficients centered on a treatment event at time zero">
+        <line x1="20" y1="150" x2="300" y2="150" stroke="#D6D3C8" stroke-width="1"/>
+        <line x1="160" y1="20" x2="160" y2="165" stroke="#8A8F98" stroke-width="1" stroke-dasharray="2 3"/>
+        <text x="160" y="178" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8A8F98">t = 0</text>
 
-    <div class="paper">
-      <span class="paper-status">Working<br>paper</span>
-      <div>
-        <p class="paper-title">Floods and Violence Against Women in Mexico</p>
-        <p class="paper-authors">Sole author</p>
-        <p class="paper-abstract">
-          A municipality-level difference-in-differences design using SAEH/DGIS hospital
-          records to estimate the effect of flooding events on violence against women,
-          situated within the household-bargaining and economic-shock literature.
-        </p>
-        <div class="paper-tags">
-          <span class="tag">municipality DiD</span>
-          <span class="tag">SAEH/DGIS</span>
-          <span class="tag">Mexico</span>
-        </div>
-      </div>
-    </div>
+        <g stroke="#4A5568" stroke-width="1.2">
+          <line x1="50" y1="140" x2="50" y2="160"/>
+          <line x1="85" y1="144" x2="85" y2="158"/>
+          <line x1="120" y1="142" x2="120" y2="156"/>
+        </g>
+        <circle class="dot" cx="50" cy="150" r="3.5" fill="#4A5568"/>
+        <circle class="dot" cx="85" cy="151" r="3.5" fill="#4A5568"/>
+        <circle class="dot" cx="120" cy="149" r="3.5" fill="#4A5568"/>
 
-    <div class="paper">
-      <span class="paper-status">In<br>progress</span>
-      <div>
-        <p class="paper-title">War Next Door: The February 2022 Invasion and Intimate Partner Violence in Finland</p>
-        <p class="paper-authors">Sole author</p>
-        <p class="paper-abstract">
-          A spatial difference-in-differences design using distance to the Russian border
-          as the source of differential exposure, estimating the effect of the invasion of
-          Ukraine on IPV via quarterly, municipality-level Finnish register data.
-        </p>
-        <div class="paper-tags">
-          <span class="tag">spatial DiD</span>
-          <span class="tag">THL register data</span>
-          <span class="tag">Finland</span>
-        </div>
-      </div>
+        <g stroke="#B7742C" stroke-width="1.2">
+          <line x1="195" y1="95" x2="195" y2="130"/>
+          <line x1="230" y1="70" x2="230" y2="112"/>
+          <line x1="265" y1="55" x2="265" y2="100"/>
+        </g>
+        <circle class="dot" cx="195" cy="112" r="3.5" fill="#B7742C"/>
+        <circle class="dot" cx="230" cy="91" r="3.5" fill="#B7742C"/>
+        <circle class="dot" cx="265" cy="78" r="3.5" fill="#B7742C"/>
+      </svg>
+      <p class="figure-caption">Stylized. Coefficients and CIs illustrative — see individual papers for estimates.</p>
     </div>
-
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">02</span>
       <h2>Contact</h2>
     </div>
     <div class="contact-grid">
       <div class="contact-item">
         <div class="label">Email</div>
-        <a href="mailto:miriam.[surname]@gssi.it">miriam.[surname]@gssi.it</a>
-      </div>
-      <div class="contact-item">
-        <div class="label">Institution</div>
-        <span>Gran Sasso Science Institute, L'Aquila</span>
+        <a href="mailto:miriam.berretta@gssi.it">miriam.berretta@gssi.it</a>
       </div>
       <div class="contact-item">
         <div class="label">Google Scholar</div>
-        <a href="#">Profile ↗</a>
+        <a href="https://scholar.google.com/citations?hl=en&user=8YiTIXsAAAAJ" target="_blank" rel="noopener">Profile ↗</a>
       </div>
       <div class="contact-item">
-        <div class="label">CV</div>
-        <a href="/cv-miriam.pdf">Download PDF ↓</a>
+        <div class="label">LinkedIn</div>
+        <a href="https://uk.linkedin.com/in/miriam-berretta-683128136" target="_blank" rel="noopener">Profile ↗</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px;">
-    <span>© 2026 Miriam [Surname]</span>
+  <div class="wrap">
+    <span>© 2026 Miriam Berretta</span>
     <span>L'Aquila, Italy</span>
   </div>
 </footer>
